@@ -85,9 +85,13 @@ function Map({ trucks, selectedTruck, onMarkerClick }) {
                 icon={
                   selectedTruck?.id === truck.id
                     ? {
-                        url: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png'
+                        url: 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png',
+                        scaledSize: new window.google.maps.Size(40, 40)
                       }
-                    : undefined
+                    : {
+                        url: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                        scaledSize: new window.google.maps.Size(40, 40)
+                      }
                 }
               />
             ))}
