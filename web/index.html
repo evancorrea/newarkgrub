@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A Flutter app for discovering and managing food trucks in Newark, NJ">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="newarkgrub">
+
+  <title>Newark Grub</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Google Maps JavaScript API for Web -->
+  <script>
+    // Load Google Maps API with API key from environment
+    // Note: The actual API key will be injected during build or loaded from .env
+    const loadGoogleMapsAPI = () => {
+      // This will be handled by the Flutter app through the google_maps_flutter_web plugin
+      console.log('Google Maps will be loaded by Flutter web plugin');
+    };
+  </script>
+
+  <script>
+    // The value below is injected by flutter build, defaults to the empty string.
+    var serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+</head>
+<body>
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

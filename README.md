@@ -1,6 +1,6 @@
 # NewarkGrub
 
-A Flutter/Dart mobile application for discovering and managing food trucks in Newark, NJ. Features Google Maps integration to visualize food truck locations.
+A Flutter/Dart application for discovering and managing food trucks in Newark, NJ. Features Google Maps integration to visualize food truck locations. Runs on Android, iOS, and Web platforms.
 
 ## Features
 
@@ -9,13 +9,14 @@ A Flutter/Dart mobile application for discovering and managing food trucks in Ne
 - **Edit** existing food truck information
 - **Delete** food trucks from the listing
 - **Interactive Map** showing food truck locations with clickable markers
-- **Responsive Design** that works on Android and iOS devices
+- **Responsive Design** that works on Android, iOS, and Web platforms
 
 ## Tech Stack
 
 - Flutter 3.x
 - Dart 3.x
-- google_maps_flutter (Google Maps integration)
+- google_maps_flutter (Google Maps integration for mobile)
+- google_maps_flutter_web (Google Maps integration for web)
 - flutter_dotenv (environment variables)
 - Provider (state management)
 
@@ -26,7 +27,8 @@ A Flutter/Dart mobile application for discovering and managing food trucks in Ne
 - Flutter SDK (3.0 or higher)
 - Dart SDK (3.0 or higher)
 - Android Studio / Xcode (for mobile development)
-- A physical device or emulator/simulator
+- Chrome browser (for web development)
+- A physical device or emulator/simulator (for mobile)
 
 ### Installation
 
@@ -41,24 +43,34 @@ cd newarkgrub
 flutter pub get
 ```
 
-3. (Optional) Configure Google Maps API:
-   - Copy `.env.example` to `.env`
-   - Add your Google Maps API key:
+3. **Create the `.env` file (REQUIRED):**
+   ```bash
+   cp .env.example .env
    ```
-   GOOGLE_MAPS_API_KEY=your_api_key_here
+
+   The app requires a `.env` file to build, even without a Google Maps API key. The default placeholder values will work fine - the app will display a list view instead of the map.
+
+4. (Optional) Add Google Maps API Key:
+   - Edit the `.env` file and add your API key:
+   ```
+   GOOGLE_MAPS_API_KEY=your_actual_api_key_here
    ```
    - Get an API key from [Google Cloud Console](https://console.cloud.google.com/google/maps-apis)
-   - Enable the **Maps SDK for Android** and **Maps SDK for iOS**
+   - Enable the following APIs:
+     - **Maps SDK for Android**
+     - **Maps SDK for iOS**
+     - **Maps JavaScript API** (for web support)
 
-4. Run the app:
+5. Run the app:
 ```bash
 flutter run
 ```
 
-   Or run on a specific device:
+   Or run on a specific platform:
 ```bash
-flutter run -d android
-flutter run -d ios
+flutter run -d android    # Android device/emulator
+flutter run -d ios        # iOS device/simulator
+flutter run -d chrome     # Chrome browser (web)
 ```
 
 ## Usage
@@ -107,6 +119,7 @@ newarkgrub/
 │   └── main.dart                # App entry point
 ├── android/                     # Android-specific files
 ├── ios/                         # iOS-specific files
+├── web/                         # Web-specific files
 ├── pubspec.yaml                 # Flutter dependencies
 └── .env                         # Environment variables
 ```
@@ -116,8 +129,10 @@ newarkgrub/
 ### Available Commands
 
 - `flutter run` - Run the app in debug mode
+- `flutter run -d chrome` - Run in Chrome browser
 - `flutter build apk` - Build Android APK
 - `flutter build ios` - Build iOS app
+- `flutter build web` - Build web app
 - `flutter test` - Run tests
 - `flutter analyze` - Analyze code for issues
 
@@ -136,6 +151,12 @@ flutter build apk --release
 ```bash
 flutter build ios --release
 ```
+
+**Web:**
+```bash
+flutter build web --release
+```
+The built web app will be in the `build/web` directory and can be deployed to any static hosting service.
 
 ## Demo Data
 
