@@ -1,93 +1,94 @@
-// Dummy data for Newark, NJ food trucks
-export const initialFoodTrucks = [
-  {
+import '../models/food_truck.dart';
+
+final List<FoodTruck> initialFoodTrucks = [
+  FoodTruck(
     id: 1,
     name: "Newark Taco Express",
     cuisine: "Mexican",
     description: "Authentic Mexican tacos, burritos, and quesadillas made with fresh ingredients.",
     rating: 4.5,
-    priceRange: "$$",
+    priceRange: "\$\$",
     hours: "11:00 AM - 9:00 PM",
     phone: "(973) 555-0101",
-    location: {
+    location: Location(
       lat: 40.735657,
       lng: -74.172367,
-      address: "Military Park, Newark, NJ"
-    }
-  },
-  {
+      address: "Military Park, Newark, NJ",
+    ),
+  ),
+  FoodTruck(
     id: 2,
     name: "Brick City BBQ",
     cuisine: "BBQ",
     description: "Slow-smoked ribs, brisket, and pulled pork with homemade sauces.",
     rating: 4.8,
-    priceRange: "$$$",
+    priceRange: "\$\$\$",
     hours: "12:00 PM - 8:00 PM",
     phone: "(973) 555-0102",
-    location: {
+    location: Location(
       lat: 40.741895,
       lng: -74.171537,
-      address: "Branch Brook Park, Newark, NJ"
-    }
-  },
-  {
+      address: "Branch Brook Park, Newark, NJ",
+    ),
+  ),
+  FoodTruck(
     id: 3,
     name: "Jersey Gyro King",
     cuisine: "Mediterranean",
     description: "Fresh gyros, falafel, and Mediterranean platters with authentic flavors.",
     rating: 4.3,
-    priceRange: "$$",
+    priceRange: "\$\$",
     hours: "10:00 AM - 10:00 PM",
     phone: "(973) 555-0103",
-    location: {
+    location: Location(
       lat: 40.738454,
       lng: -74.165755,
-      address: "Ironbound District, Newark, NJ"
-    }
-  },
-  {
+      address: "Ironbound District, Newark, NJ",
+    ),
+  ),
+  FoodTruck(
     id: 4,
     name: "Aloha Poke Bowl",
     cuisine: "Hawaiian",
     description: "Fresh and healthy poke bowls with customizable toppings.",
     rating: 4.6,
-    priceRange: "$$",
+    priceRange: "\$\$",
     hours: "11:00 AM - 7:00 PM",
     phone: "(973) 555-0104",
-    location: {
+    location: Location(
       lat: 40.744015,
       lng: -74.159255,
-      address: "Newark Penn Station, Newark, NJ"
-    }
-  },
-  {
+      address: "Newark Penn Station, Newark, NJ",
+    ),
+  ),
+  FoodTruck(
     id: 5,
     name: "Sweet Street Desserts",
     cuisine: "Desserts",
     description: "Gourmet ice cream, churros, and fresh-baked cookies.",
     rating: 4.9,
-    priceRange: "$",
+    priceRange: "\$",
     hours: "2:00 PM - 10:00 PM",
     phone: "(973) 555-0105",
-    location: {
+    location: Location(
       lat: 40.732123,
       lng: -74.171234,
-      address: "Washington Park, Newark, NJ"
-    }
-  },
-  {
+      address: "Washington Park, Newark, NJ",
+    ),
+  ),
+  FoodTruck(
     id: 6,
     name: "Philly Cheesesteak Co",
     cuisine: "American",
     description: "Classic Philly cheesesteaks and hoagies with premium meats.",
     rating: 4.4,
-    priceRange: "$$",
+    priceRange: "\$\$",
     hours: "11:00 AM - 11:00 PM",
     phone: "(973) 555-0106",
-    location: {
+    location: Location(
       lat: 40.739876,
       lng: -74.180123,
-      address: "University Heights, Newark, NJ"
-    }
-  }
+      address: "University Heights, Newark, NJ",
+    ),
+  ),
 ];

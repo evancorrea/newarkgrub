@@ -1,6 +1,6 @@
 # NewarkGrub
 
-A React-based CRUD application for discovering and managing food trucks in Newark, NJ. Features Google Maps integration to visualize food truck locations.
+A Flutter/Dart mobile application for discovering and managing food trucks in Newark, NJ. Features Google Maps integration to visualize food truck locations.
 
 ## Features
 
@@ -9,21 +9,24 @@ A React-based CRUD application for discovering and managing food trucks in Newar
 - **Edit** existing food truck information
 - **Delete** food trucks from the listing
 - **Interactive Map** showing food truck locations with clickable markers
-- **Responsive Design** that works on desktop and mobile devices
+- **Responsive Design** that works on Android and iOS devices
 
 ## Tech Stack
 
-- React 18
-- Vite (build tool)
-- @react-google-maps/api (Google Maps integration)
-- CSS (custom styling)
+- Flutter 3.x
+- Dart 3.x
+- google_maps_flutter (Google Maps integration)
+- flutter_dotenv (environment variables)
+- Provider (state management)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+- Flutter SDK (3.0 or higher)
+- Dart SDK (3.0 or higher)
+- Android Studio / Xcode (for mobile development)
+- A physical device or emulator/simulator
 
 ### Installation
 
@@ -35,24 +38,28 @@ cd newarkgrub
 
 2. Install dependencies:
 ```bash
-npm install
+flutter pub get
 ```
 
 3. (Optional) Configure Google Maps API:
    - Copy `.env.example` to `.env`
    - Add your Google Maps API key:
    ```
-   VITE_GOOGLE_MAPS_API_KEY=your_api_key_here
+   GOOGLE_MAPS_API_KEY=your_api_key_here
    ```
    - Get an API key from [Google Cloud Console](https://console.cloud.google.com/google/maps-apis)
-   - Enable the Maps JavaScript API
+   - Enable the **Maps SDK for Android** and **Maps SDK for iOS**
 
-4. Start the development server:
+4. Run the app:
 ```bash
-npm run dev
+flutter run
 ```
 
-5. Open your browser and visit `http://localhost:5173`
+   Or run on a specific device:
+```bash
+flutter run -d android
+flutter run -d ios
+```
 
 ## Usage
 
@@ -84,35 +91,51 @@ npm run dev
 
 ```
 newarkgrub/
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx        # App header component
-│   │   ├── FoodTruckList.jsx # List of all food trucks
-│   │   ├── FoodTruckCard.jsx # Individual truck card
-│   │   ├── FoodTruckForm.jsx # Add/Edit form
-│   │   └── Map.jsx           # Google Maps integration
+├── lib/
+│   ├── models/
+│   │   └── food_truck.dart      # FoodTruck and Location models
 │   ├── data/
-│   │   └── foodTrucks.js     # Dummy data for demo
-│   ├── App.jsx               # Main app component
-│   ├── main.jsx              # App entry point
-│   └── index.css             # Global styles
-├── index.html
-├── package.json
-└── vite.config.js
+│   │   └── food_trucks.dart     # Initial data for demo
+│   ├── widgets/
+│   │   ├── header.dart          # App header widget
+│   │   ├── food_truck_list.dart # List of all food trucks
+│   │   ├── food_truck_card.dart # Individual truck card
+│   │   ├── food_truck_form.dart # Add/Edit form
+│   │   └── map_view.dart        # Google Maps integration
+│   ├── screens/
+│   │   └── home_screen.dart     # Main home screen
+│   └── main.dart                # App entry point
+├── android/                     # Android-specific files
+├── ios/                         # iOS-specific files
+├── pubspec.yaml                 # Flutter dependencies
+└── .env                         # Environment variables
 ```
 
 ## Development
 
-### Available Scripts
+### Available Commands
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+- `flutter run` - Run the app in debug mode
+- `flutter build apk` - Build Android APK
+- `flutter build ios` - Build iOS app
+- `flutter test` - Run tests
+- `flutter analyze` - Analyze code for issues
 
 ### Note on Google Maps
 
 The app works without a Google Maps API key - it will display a placeholder showing food truck locations. For full map functionality, add your API key to the `.env` file.
+
+### Building for Production
+
+**Android:**
+```bash
+flutter build apk --release
+```
+
+**iOS:**
+```bash
+flutter build ios --release
+```
 
 ## Demo Data
 
