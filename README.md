@@ -43,11 +43,17 @@ cd newarkgrub
 flutter pub get
 ```
 
-3. (Optional) Configure Google Maps API:
-   - Copy `.env.example` to `.env`
-   - Add your Google Maps API key:
+3. **Create the `.env` file (REQUIRED):**
+   ```bash
+   cp .env.example .env
    ```
-   GOOGLE_MAPS_API_KEY=your_api_key_here
+
+   The app requires a `.env` file to build, even without a Google Maps API key. The default placeholder values will work fine - the app will display a list view instead of the map.
+
+4. (Optional) Add Google Maps API Key:
+   - Edit the `.env` file and add your API key:
+   ```
+   GOOGLE_MAPS_API_KEY=your_actual_api_key_here
    ```
    - Get an API key from [Google Cloud Console](https://console.cloud.google.com/google/maps-apis)
    - Enable the following APIs:
@@ -55,7 +61,7 @@ flutter pub get
      - **Maps SDK for iOS**
      - **Maps JavaScript API** (for web support)
 
-4. Run the app:
+5. Run the app:
 ```bash
 flutter run
 ```
