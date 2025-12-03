@@ -15,14 +15,25 @@
   <title>Newark Grub</title>
   <link rel="manifest" href="manifest.json">
 
+  <!-- Load configuration with API keys -->
+  <script src="config.js"></script>
+
   <!-- Google Maps JavaScript API for Web -->
+  <!-- The google_maps_flutter_web plugin requires this to be loaded before the Flutter app -->
   <script>
-    // Load Google Maps API with API key from environment
-    // Note: The actual API key will be injected during build or loaded from .env
-    const loadGoogleMapsAPI = () => {
-      // This will be handled by the Flutter app through the google_maps_flutter_web plugin
-      console.log('Google Maps will be loaded by Flutter web plugin');
-    };
+    (function() {
+      if (window.ENV && window.ENV.GOOGLE_MAPS_API_KEY && window.ENV.GOOGLE_MAPS_API_KEY !== 'YOUR_API_KEY_HERE') {
+        // Load Google Maps JavaScript API with the key from config.js
+        var script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=' + window.ENV.GOOGLE_MAPS_API_KEY;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+        console.log('Google Maps API loading for web...');
+      } else {
+        console.warn('Google Maps API key not configured in web/config.js - map will not display');
+      }
+    })();
   </script>
 
   <script>

@@ -45,6 +45,7 @@ app.*.map.json
 
 # Environment variables
 .env
+web/config.js
 
 # Old React/Node files (legacy)
 node_modules

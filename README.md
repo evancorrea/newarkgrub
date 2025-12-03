@@ -61,6 +61,14 @@ flutter pub get
      - **Maps SDK for iOS**
      - **Maps JavaScript API** (for web support)
 
+   **Additional step for Web platform:**
+   - For web, you also need to configure `web/config.js`:
+   ```bash
+   cp web/config.js.example web/config.js
+   ```
+   - Edit `web/config.js` and replace `YOUR_API_KEY_HERE` with your Google Maps API key
+   - This is required because the web platform needs to load the Google Maps JavaScript API before the Flutter app starts
+
 5. Run the app:
 ```bash
 flutter run
@@ -138,7 +146,9 @@ newarkgrub/
 
 ### Note on Google Maps
 
-The app works without a Google Maps API key - it will display a placeholder showing food truck locations. For full map functionality, add your API key to the `.env` file.
+The app works without a Google Maps API key - it will display a placeholder showing food truck locations. For full map functionality:
+- **Mobile (Android/iOS):** Add your API key to the `.env` file
+- **Web:** Add your API key to both the `.env` file AND `web/config.js` (see installation step 4)
 
 ### Building for Production
 

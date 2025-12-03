@@ -1,0 +1,14 @@
+// Configuration for web-specific settings
+// This file is loaded before the Flutter app starts
+
+// SETUP INSTRUCTIONS:
+// 1. Copy this file to 'config.js' in the same directory (web/)
+// 2. Replace 'YOUR_API_KEY_HERE' with your actual Google Maps API key
+// 3. Make sure you've enabled "Maps JavaScript API" in Google Cloud Console
+
+window.ENV = {
+  // Add your Google Maps API key here (same key from your .env file)
+  // Get your API key from: https://console.cloud.google.com/google/maps-apis
+  // Make sure to enable: Maps JavaScript API for web support
+  GOOGLE_MAPS_API_KEY: 'YOUR_API_KEY_HERE'
+};
